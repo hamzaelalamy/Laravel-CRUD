@@ -20,8 +20,8 @@ class NinjaController extends Controller
 
     public function show($id)
     {
-        $user = Niinja::findOrFail($id);
         //fetch record with id
+        $user = Niinja::findOrFail($id);
         return view('users.show', ["user" => $user]);
     }
 

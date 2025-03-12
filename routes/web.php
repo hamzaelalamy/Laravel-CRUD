@@ -7,7 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users', [NinjaController::class, 'index']);
-Route::get('/users/create', [NinjaController::class, 'create']);
-
-Route::get('/users/{id}', [NinjaController::class, 'show']);
+Route::get('/users', [NinjaController::class, 'index'])->name('users.index');
+Route::get('/users/create', [NinjaController::class, 'create'])->name('users.create');
+Route::get('/users/{id}', [NinjaController::class, 'show'])->name('users.show');

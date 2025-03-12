@@ -9,8 +9,8 @@
     <header>
         <nav>
             <h1>Users Network</h1>
-            <a href="/users">All users</a>
-            <a href="/users/create">Create New user</a>
+            <a href="{{ route('users.index')}}">All users</a>
+            <a href="{{route('users.create')}}">Create New user</a>
         </nav>
     </header>
     <main class="container">
