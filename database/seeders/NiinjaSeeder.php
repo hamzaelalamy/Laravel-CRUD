@@ -13,6 +13,6 @@ class NiinjaSeeder extends Seeder
      */
     public function run(): void
     {
-        Niinja::factory->count(50)->create();
+        Niinja::factory()->count(50)->create();
     }
 }
