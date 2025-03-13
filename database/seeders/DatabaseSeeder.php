@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            DojoSeeder::class,
             NiinjaSeeder::class,
         ]);
     }

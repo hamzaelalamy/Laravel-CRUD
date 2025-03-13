@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('niinjas', function (Blueprint $table) {
+        Schema::create('dojos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('skill');
-            $table->string('email')->unique();
             $table->timestamps();
-            $table->foreignId('dojo_id')->constrainted()->onDelete('cascade');
+            $table->string('name');
+            $table->string('description');
+            $table->string('location');
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('niinjas');
+        Schema::dropIfExists('dojos');
     }
 };
