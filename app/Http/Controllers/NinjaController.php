@@ -9,7 +9,7 @@ class NinjaController extends Controller
 {
     public function index()
     {
-        $users = Niinja::orderBy('created_at', 'desc')->get();
+        $users = Niinja::orderBy('created_at', 'desc')->paginate(10);
         return view('users.index', ["users" => $users]);
     }
 

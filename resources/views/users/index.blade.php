@@ -9,4 +9,6 @@
          </li>
         @endforeach
     </ul>
+
+    {{ $users->links() }}
 </x-layout>
