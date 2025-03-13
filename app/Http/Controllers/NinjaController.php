@@ -9,7 +9,7 @@ class NinjaController extends Controller
 {
     public function index()
     {
-        $users = Niinja::orderBy('created_at', 'desc')->paginate(10);
+        $users = Niinja::with('dojo')->orderBy('created_at', 'desc')->paginate(10);
         return view('users.index', ["users" => $users]);
     }
 
@@ -21,7 +21,7 @@ class NinjaController extends Controller
     public function show($id)
     {
         //fetch record with id
-        $user = Niinja::findOrFail($id);
+        $user = Niinja::with('dojo')->findOrFail($id);
         return view('users.show', ["user" => $user]);
     }
 

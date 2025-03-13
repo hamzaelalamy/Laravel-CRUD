@@ -10,4 +10,8 @@ class Niinja extends Model
     protected $fillable = ['name', 'email', 'skill']; 
     /** @use HasFactory<\Database\Factories\NiinjaFactory> */
     use HasFactory;
+
+    public function dojo() {
+        return $this->belongsTo(Dojo::class);
+    }
 }
