@@ -20,10 +20,10 @@ class NinjaController extends Controller
         return view('users.create', ["dojos" => $dojos]);
     }
 
-    public function show($id)
+    public function show(Niinja $user)
     {
         //fetch record with id
-        $user = Niinja::with('dojo')->findOrFail($id);
+        $user->load('dojo');
         return view('users.show', ["user" => $user]);
     }
 
@@ -38,14 +38,13 @@ class NinjaController extends Controller
 
         Niinja::create($validated);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'User added successfully');
     }
 
-    public function destroy($id) {
-        $ninja = Niinja::findOrFail($id);
-        $ninja->delete();
+    public function destroy(Niinja $user) {
+        $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 
 }
