@@ -27,16 +27,18 @@ class NinjaController extends Controller
         return view('users.show', ["user" => $user]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        // Validate the request...
-        $validated = request()->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'skill' => 'required',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'skill' => 'required|integer|min:0|max:100',
+            'email' => 'required|email',
+            'dojo_id' => 'required|exists:dojos,id'
         ]);
 
-        // Create a new ninja using the validated data...
+        Niinja::create($validated);
+
+        return redirect()->route('users.index');
     }
 
 

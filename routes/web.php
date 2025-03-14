@@ -10,3 +10,4 @@ Route::get('/', function () {
 Route::get('/users', [NinjaController::class, 'index'])->name('users.index');
 Route::get('/users/create', [NinjaController::class, 'create'])->name('users.create');
 Route::get('/users/{id}', [NinjaController::class, 'show'])->name('users.show');
+Route::post('/users', [NinjaController::class, 'store'])->name('users.store');

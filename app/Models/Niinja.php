@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Niinja extends Model
 {
-    protected $fillable = ['name', 'email', 'skill']; 
+    protected $fillable = ['name', 'email', 'skill', 'dojo_id']; 
     /** @use HasFactory<\Database\Factories\NiinjaFactory> */
     use HasFactory;
 
