@@ -13,4 +13,11 @@
     <p><strong>About the Dojo:</strong></p>
     <p>{{ $user->dojo->description }}</p>
   </div>
+
+  <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn my-4" >Delete user</button>
+  </form>
+
 </x-layout>

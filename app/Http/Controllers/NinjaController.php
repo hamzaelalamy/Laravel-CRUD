@@ -41,5 +41,11 @@ class NinjaController extends Controller
         return redirect()->route('users.index');
     }
 
+    public function destroy($id) {
+        $ninja = Niinja::findOrFail($id);
+        $ninja->delete();
+
+        return redirect()->route('users.index');
+    }
 
 }
